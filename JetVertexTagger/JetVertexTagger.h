@@ -1,3 +1,8 @@
+// JetVertexTagger package
+// Questions / Comments: pascal.nef@cern.ch, sch@slac.stanford.edu, Andreas.Wildauer@cern.ch
+
+
+
 #ifndef _JETVERTEXTAGGER_
 #define _JETVERTEXTAGGER_
 
@@ -12,6 +17,13 @@
 
 class JVTTrack;
 
+//----------------------------------------------------
+/// \class JetVertexTagger
+/// Class for calculation of the JVT variable to tag 
+/// and suppress pileup jets.
+///
+/// See ATLAS-CONF-2014-018 for details. 
+//----------------------------------------------------
 class JetVertexTagger : public TNamed{
     public:
 
@@ -61,6 +73,10 @@ class JetVertexTagger : public TNamed{
 };
 
 
+//----------------------------------------------------
+/// \class JVTTrack
+/// Helper class for tracks used in JetVertexTagger
+//----------------------------------------------------
 class JVTTrack {
     public:
         JVTTrack(float pt, float z0_wrtPV): pt_(pt) ,  z0_wrtPV_(z0_wrtPV), origin_(-1){};
