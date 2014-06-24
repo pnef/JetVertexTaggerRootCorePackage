@@ -21,7 +21,8 @@ class JetVertexTagger : public TNamed{
         ~JetVertexTagger();
 
         // init method: call this for each new event
-        void init(const std::vector<float> &trk_pt, const std::vector<float> &trk_z0_wrtPV, const std::vector<std::vector<int> > &vxp_trk_index);
+        void init(const std::vector<float> &trk_pt, const std::vector<float> &trk_z0_wrtPV, 
+                  const std::vector<std::vector<int> > &vxp_trk_index);
 
         // actual worker
         bool operator()(const float jet_pt, const std::vector<int> assoc_trk_indices);
