@@ -1,2 +1,6 @@
 2014-06-24 P. Nef: trunk
 	* initial commit of package
+2014-07-09 P. Nef: trunk
+	* adding example directory with files to test JVT installation, 
+	* adding default constructor 
+	* fiddling with Root ClassDef

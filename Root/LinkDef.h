@@ -13,6 +13,8 @@
 #pragma link C++ nestedclasses;
 
 #pragma link C++ class JetVertexTagger+;
+#pragma link C++ class JVTTrack+;
+#pragma link C++ class std::vector<JVTTrack>+;
 
 #endif
 

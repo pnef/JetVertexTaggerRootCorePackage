@@ -2,6 +2,15 @@
 #include <algorithm>    // std::find
 
 
+// default Constructor
+JetVertexTagger::JetVertexTagger()
+    : debug_(false), goodfile_(true), goodhisto_(true),
+      likelihood_name_("kNN100trim_pt20to50_Likelihood"), jvt_cut_(-1),
+      tot_n_pu_tracks_(-1), corrJVF_(-99.), RpT_(-99.), JVT_(-99.),
+      k_z0_cut_(3.), k_corrJVF_scale_fact_(0.01){
+    
+      // nothing to be done here. This is a dummy constructor only. 
+}
 
 // Constructor 
 JetVertexTagger::JetVertexTagger(const float &jvt_cut, const TString filein)
@@ -10,17 +19,17 @@ JetVertexTagger::JetVertexTagger(const float &jvt_cut, const TString filein)
       tot_n_pu_tracks_(-1), corrJVF_(-99.), RpT_(-99.), JVT_(-99.),
       k_z0_cut_(3.), k_corrJVF_scale_fact_(0.01){
 
-    // load JVT likelihood
-    file_ = new TFile(filein, "open");
-    if(! file_->IsOpen()){
-        std::cerr << "JetVertexTagger::JetVertexTagger: cannot open file " << filein << std::endl;
-        goodfile_ = false;
-    }
-    likelihood_ = (TH2F*) file_->Get(likelihood_name_);
-    if(likelihood_ == 0){
-        std::cerr << "JetVertexTagger::JetVertexTagger: can't fine TH2F " << likelihood_name_ << std::endl;
-        goodhisto_ = false;
-    }
+      // load JVT likelihood
+      file_ = new TFile(filein, "open");
+      if(! file_->IsOpen()){
+          std::cerr << "JetVertexTagger::JetVertexTagger: cannot open file " << filein << std::endl;
+          goodfile_ = false;
+      }
+      likelihood_ = (TH2F*) file_->Get(likelihood_name_);
+      if(likelihood_ == 0){
+          std::cerr << "JetVertexTagger::JetVertexTagger: can't fine TH2F " << likelihood_name_ << std::endl;
+          goodhisto_ = false;
+      }
 
 }
 
