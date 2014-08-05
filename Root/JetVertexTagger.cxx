@@ -5,7 +5,7 @@
 // default Constructor
 JetVertexTagger::JetVertexTagger()
     : debug_(false), goodfile_(true), goodhisto_(true),
-      likelihood_name_("kNN100trim_pt20to50_Likelihood"), jvt_cut_(-1),
+      likelihood_name_("JVTRootCore_kNN100trim_pt20to50_Likelihood"), jvt_cut_(-1),
       tot_n_pu_tracks_(-1), corrJVF_(-99.), RpT_(-99.), JVT_(-99.),
       k_z0_cut_(3.), k_corrJVF_scale_fact_(0.01){
     
@@ -15,7 +15,7 @@ JetVertexTagger::JetVertexTagger()
 // Constructor 
 JetVertexTagger::JetVertexTagger(const float &jvt_cut, const TString filein)
     : debug_(false), goodfile_(true), goodhisto_(true),
-      likelihood_name_("kNN100trim_pt20to50_Likelihood"), jvt_cut_(jvt_cut),
+      likelihood_name_("JVTRootCore_kNN100trim_pt20to50_Likelihood"), jvt_cut_(jvt_cut),
       tot_n_pu_tracks_(-1), corrJVF_(-99.), RpT_(-99.), JVT_(-99.),
       k_z0_cut_(3.), k_corrJVF_scale_fact_(0.01){
 
@@ -27,7 +27,7 @@ JetVertexTagger::JetVertexTagger(const float &jvt_cut, const TString filein)
       }
       likelihood_ = (TH2F*) file_->Get(likelihood_name_);
       if(likelihood_ == 0){
-          std::cerr << "JetVertexTagger::JetVertexTagger: can't fine TH2F " << likelihood_name_ << std::endl;
+          std::cerr << "JetVertexTagger::JetVertexTagger: can't find TH2F " << likelihood_name_ << std::endl;
           goodhisto_ = false;
       }
 

@@ -3,7 +3,7 @@ void JVTTest(){
     gSystem->CompileMacro("Loader.C");
     gSystem->CompileMacro("NtupCommonReader.C");
     gSystem->Load("../StandAlone/libJetVertexTagger.so");
-    JetVertexTagger *jvt = new JetVertexTagger(-1, "../data/JVTlikelihood_20140213.root");
+    JetVertexTagger *jvt = new JetVertexTagger(-1, "../data/JVTlikelihood_20140805.root");
 
     TFile *fT = new TFile("mc12_8TeV.147771.Sherpa_CT10_Zmumu.merge.NTUP_COMMON.e1434_s1499_s1504_r3658_r3549_p1562.NTUP_COMMON.01313919._000880.skimmed100Events.root");
     TTree *tree = (TTree*) fT->Get("physics");
