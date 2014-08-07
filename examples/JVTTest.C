@@ -36,16 +36,11 @@ void JVTTest(){
          vector<int> assoc_trk_indices = assoc_trk_indices_alljets[ij];
 
          // pt of current jet
-         // !!!! WARNING: for an analysis usage, use the fully corrected jet pT and not the one from the D3PD! 
-//         float jetpt  = (reader.jet_AntiKt4LCTopo_pt)->at(ij) / 1000.; // fixme 
-         float jetpt  = (reader.jet_AntiKt4LCTopo_constscale_pt)->at(ij) / 1000.;
+         // !!!! WARNING: for an analysis usage, use the fully corrected jet pT and not the constscale pT 
+         float jetpt  = (reader.jet_AntiKt4LCTopo_constscale_pt)->at(ij) / 1000.;  // WARNING (see above)
          float jeteta = (reader.jet_AntiKt4LCTopo_eta)->at(ij);
 
          if( jetpt< 20 || jetpt > 50 || fabs(jeteta)>2.4 )    continue;
-
-//         for(int it=0; it<trk_pt.size(); ++it){
-//            cout << "trk " << it << " pt " << trk_pt[it] << " " << trk_z0_wrtPV[it] << endl;
-//         }
 
          // calculate JVT
          bool pass = (*jvt)(jetpt, assoc_trk_indices);
